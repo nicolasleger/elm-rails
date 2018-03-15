@@ -1,9 +1,18 @@
 language: ruby
 install:
   - bundle install
-  - bundle install --gemfile=test/acceptance/rails4.2/Gemfile
-  - bundle install --gemfile=test/acceptance/rails5.0/Gemfile
   - npm install -g elm
 rvm:
-  - 2.3.3
-  - 2.2.6
+  - 2.5.0
+  - 2.4.3
+  - 2.3.6
+  - 2.2.9
+gemfile:
+  - test/acceptance/rails4.2/Gemfile
+  - test/acceptance/rails5.0/Gemfile
+matrix:
+  exclude:
+  - rvm: 2.5.0
+    gemfile:test/acceptance/rails4.2/Gemfile
+  - rvm: 2.5.0
+    gemfile:test/acceptance/rails4.2/Gemfile
